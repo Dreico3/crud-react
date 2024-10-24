@@ -1,7 +1,13 @@
-import list from "../../moks/moks.json";
+//import list from "../../moks/moks.json";
 import { Delete, Edit } from "../icons";
 import "./tableOfUser.css";
+import { useAppSelector } from "../../hooks/store";
+import { useUserActions } from "../../hooks/useUserActions";
 export default function TableOfUser() {
+  //aqui es un ejemplo de que ya no es necesario tipar el selector
+  const users = useAppSelector((state) => state.userEjemplo);
+  //aqui es donde estamos usando el custom hook de las acciones
+  const { removeUserById } = useUserActions();
   return (
     //here i need to do tests
     <>
@@ -15,9 +21,9 @@ export default function TableOfUser() {
           </tr>
         </thead>
         <tbody>
-          {list.map((user, i) => (
-            <tr key={i}>
-              <td> {i + 1}</td>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td> {user.id}</td>
               <td>
                 <img
                   alt={user.name}
@@ -27,7 +33,7 @@ export default function TableOfUser() {
               </td>
               <td>{user.email}</td>
               <td>
-                <button>
+                <button onClick={() => removeUserById(user.id)}>
                   <Delete></Delete>
                 </button>
                 <button>
