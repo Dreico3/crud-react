@@ -1,4 +1,4 @@
-import { UserId, deleteUserById } from "../store/users/slice";
+import { User, UserId, createUser, deleteUserById } from "../store/users/slice";
 import { useAppDispatch } from "./store";
 
 /* aqui es donde condensamos todas las llamadas a las acciones sin tener
@@ -9,5 +9,8 @@ export const useUserActions = () => {
   const removeUserById = (id: UserId) => {
     dispatch(deleteUserById(id));
   };
-  return { removeUserById };
+  const createNewUser = (user: User) => {
+    dispatch(createUser(user));
+  };
+  return { removeUserById, createNewUser };
 };

@@ -10,20 +10,20 @@ export default function TableOfUser() {
   const { removeUserById } = useUserActions();
   return (
     //here i need to do tests
-    <>
+    <div className="content-table">
       <table className="table">
         <thead>
           <tr>
-            <th>id</th>
+            <th>Nro</th>
             <th>name</th>
             <th>email</th>
             <th>Aciones</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users.map((user,index) => (
             <tr key={user.id}>
-              <td> {user.id}</td>
+              <td> {index + 1}</td>
               <td>
                 <img
                   alt={user.name}
@@ -44,6 +44,6 @@ export default function TableOfUser() {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,34 @@
+.contend-form {
+  display: grid;
+  justify-content: center;
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    input {
+      height: 30px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+
+    button {
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .error {
+      color: transparent;
+      transition: all 0.4s;
+      transform: translateY(-20px);
+    }
+    .true {
+      color: red;
+      transition: all 0.4s;
+      transform: translateY(20px);
+    }
+  }
+}

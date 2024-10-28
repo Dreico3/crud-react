@@ -45,10 +45,16 @@ export const userSlice = createSlice({
       const id = action.payload;
       return state.filter((user) => user.id !== id);
     },
+    createUser:(state,action:PayloadAction<User>)=>{
+      const {name,email,github}=action.payload
+      return [...state,{email,name,github,id:`${crypto.randomUUID()}`}]
+      //tambien se puedes hacer de esta forma
+      //return [...state,{action.payload,id:`${crypto.randomUUID()}`}]
+    }
   },
 });
 
 export default userSlice.reducer;
 //esta es forma mas facil de exportar las acciones sin tener que hacer lo de antes
 //"NOMBRE_DE_LA_ACTION" esto es lo anterior
-export const { deleteUserById } = userSlice.actions;
+export const { deleteUserById,createUser } = userSlice.actions;

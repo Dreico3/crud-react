@@ -1,3 +1,7 @@
+.content-table{
+  display: flex;
+  justify-content: center;
+}
 .table {
   border-radius: 15px;
   padding: 10px;
